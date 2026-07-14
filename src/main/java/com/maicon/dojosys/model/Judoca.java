@@ -1,4 +1,4 @@
-package com.maicon.judomenu.model;
+package com.maicon.dojosys.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

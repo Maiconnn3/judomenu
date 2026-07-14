@@ -1,7 +1,7 @@
-package com.maicon.judomenu.controller;
+package com.maicon.dojosys.controller;
 
-import com.maicon.judomenu.model.Judoca;
-import com.maicon.judomenu.service.JudocaService;
+import com.maicon.dojosys.model.Judoca;
+import com.maicon.dojosys.service.JudocaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;

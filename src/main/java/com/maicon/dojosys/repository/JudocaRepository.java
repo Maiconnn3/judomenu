@@ -1,6 +1,6 @@
-package com.maicon.judomenu.repository;
+package com.maicon.dojosys.repository;
 
-import com.maicon.judomenu.model.Judoca;
+import com.maicon.dojosys.model.Judoca;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

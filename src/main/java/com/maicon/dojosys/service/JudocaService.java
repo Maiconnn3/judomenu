@@ -1,7 +1,7 @@
-package com.maicon.judomenu.service;
+package com.maicon.dojosys.service;
 
-import com.maicon.judomenu.model.Judoca;
-import com.maicon.judomenu.repository.JudocaRepository;
+import com.maicon.dojosys.model.Judoca;
+import com.maicon.dojosys.repository.JudocaRepository;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.List;
