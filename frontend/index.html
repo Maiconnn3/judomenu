@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DojoSys</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <h1>DojoSys</h1>
+
+    <h3>Criar Judoca</h3>
+
+    <form>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" placeholder="Digite o nome"><br>
+
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" placeholder="Digite a idade"><br>
+
+        <label for="Peso:">Peso:</label>
+        <input type="number" id="peso" placeholder="Digite o peso" step:0.3><br>
+        
+            <label for="faixas">Cor da faixa:</label>
+            <select id="faixa" name="faixas">
+                <option value="1">1 - Branca</option>
+                <option value="2">2 - Cinza</option>
+                <option value="3">3 - Azul</option>
+                <option value="4">4 - Amarelo</option>
+                <option value="5">5 - Laranja</option>
+                <option value="6">6 - Verde</option>
+                <option value="7">7 - Roxa</option>
+                <option value="8">8 - Marrom</option>
+                <option value="9">9 - Preta</option>
+            </select> <br>
+        
+        <button type="button" onclick="criarJudoca()">Matricular Judoca</button>
+    </form>
+
+    <br>
+
+    <h3>Atualizar Judoca</h3>
+
+    <form>
+        <label for="Id">ID:</label>
+        <input type="text" id="idUpdatePorId" placeholder="Digite o ID para atualizar"><br>
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="nomeUpdate" placeholder="Digite o novo nome"><br>
+
+        <label for="idade">Idade:</label>
+        <input type="number" id="idadeUpdate" placeholder="Digite a nova idade"><br>
+
+        <label for="Peso:">Peso:</label>
+        <input type="number" id="pesoUpdate" placeholder="Digite o novo peso" step:0.3><br>
+        
+            <label for="faixas">Cor da faixa:</label>
+            <select id="faixaUpdate" name="faixas">
+                <option value="1">1 - Branca</option>
+                <option value="2">2 - Cinza</option>
+                <option value="3">3 - Azul</option>
+                <option value="4">4 - Amarelo</option>
+                <option value="5">5 - Laranja</option>
+                <option value="6">6 - Verde</option>
+                <option value="7">7 - Roxa</option>
+                <option value="8">8 - Marrom</option>
+                <option value="9">9 - Preta</option>
+            </select> <br>
+        
+        <button type="button" onclick="atualizarPorId()">Atualizar Judoca</button>
+    </form>
+
+    <br>
+
+    <h3>Deletar Judoca</h3>
+
+    <input type="number" id="inputDeletarPorId">
+    <button onclick="deletarPorId()">Deletar</button>
+
+    <br><br>
+
+    <h3>Buscar Judocas</h3>
+
+    <input type="number" id="inputBuscarId">
+    <button onclick="buscarPorId()">Buscar por ID</button>
+
+    <br><br>
+
+    <button onclick="buscarJudocas()">Buscar Judocas</button>
+    
+    <ul id="listaHTML">
+    </ul>
+
+
+    
+
+
+    
+
+
+    <script src="script.js"></script>
+</body>
+</html>

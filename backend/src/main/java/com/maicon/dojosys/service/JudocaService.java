@@ -2,9 +2,7 @@ package com.maicon.dojosys.service;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.stereotype.Service;
-
 import com.maicon.dojosys.model.Judoca;
 import com.maicon.dojosys.repository.JudocaRepository;
 

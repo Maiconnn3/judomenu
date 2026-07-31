@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/judocas")
+@CrossOrigin(origins = "*")
 public class JudocaController{
 
     private final JudocaService service;
