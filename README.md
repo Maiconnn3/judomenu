@@ -1,62 +1,55 @@
-# 🥋 DojoSys
+# 🥋 DojoSys API
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 ## 📌 Sobre o Projeto
-O **DojoSys** é um sistema web desenvolvido para gerenciar os alunos de um dojo de judô. 
+O **DojoSys** é um sistema completo (API REST + Interface Web) desenvolvido para gerenciar os alunos de um dojo de judô. 
 
-O que começou como um laboratório prático para consolidar conceitos de backend, evoluiu para uma aplicação Full-Stack. O projeto une o ciclo de aprendizado em Análise e Desenvolvimento de Sistemas com a rotina prática dos tatames, criando uma ferramenta real para acompanhar matrículas, controle de peso dos atletas e as progressões de graduação — desde a branca até a conquista da faixa azul e além.
+Este projeto foi construído como um laboratório prático para explorar e consolidar conceitos fundamentais do desenvolvimento de software. O backend foi focado em uma arquitetura limpa em camadas (Controller, Service, Repository) utilizando **Java e Spring Boot**, enquanto o frontend foi desenhado para consumir essa API de forma assíncrona.
 
 ## 🚀 O que foi desenvolvido
-O sistema funciona através da comunicação fluida entre uma interface de usuário e uma API RESTful, divididas em:
-
-### 🖥️ Frontend (Interface Web)
-* **Interatividade:** Construída com **HTML** e **JavaScript** puro, utilizando a *Fetch API* para o consumo assíncrono das rotas do servidor.
-* **Estilização:** **CSS** (em desenvolvimento) para garantir uma interface limpa, estruturada e amigável.
-* **Funcionalidades:** Telas dedicadas para o usuário cadastrar, buscar, editar e deletar alunos dinamicamente, sem precisar recarregar a página.
 
 ### ⚙️ Backend (API REST)
-Uma estrutura CRUD completa operando nos bastidores com **Java e Spring Boot**, organizada em uma arquitetura limpa (Controller, Service, Repository):
+Uma estrutura CRUD completa (Criar, Ler, Atualizar e Deletar) com as seguintes rotas:
 * `POST /judocas`: Cadastra um novo aluno.
 * `GET /judocas`: Lista todos os atletas matriculados.
 * `GET /judocas/{id}`: Busca os detalhes de um aluno específico.
 * `PUT /judocas/{id}`: Atualiza informações como troca de faixa ou alteração de peso.
 * `DELETE /judocas/{id}`: Remove um registro do sistema.
 
-**Destaque:** Foram aplicadas regras de negócio na camada de serviço (como impedir o cadastro de atletas sem nome ou com peso zerado/negativo) e o tratamento de erros para retornar o *Status Code* HTTP adequado para o front-end em caso de falha.
+**Destaque da API:** Foram aplicadas regras de negócio simples na camada de serviço (como impedir o cadastro de atletas sem nome ou com peso zerado/negativo) e o tratamento de erros para retornar o *Status Code* HTTP adequado em caso de falha.
 
-## 💾 Banco de Dados (MySQL)
-O sistema utiliza o **MySQL** para armazenar as informações de forma definitiva, aplicando conceitos de modelagem relacional. Graças à integração com o **Spring Data JPA (Hibernate)**, o mapeamento objeto-relacional (ORM) gerencia automaticamente a criação e o relacionamento das tabelas no banco `judodb`. 
+### 🖥️ Frontend (Interface Web)
+Para interagir com a API, foi construída uma interface de usuário simples e responsiva:
+* **Layout:** Formulários estruturados utilizando **CSS Grid** (organização em colunas) para uma experiência de usuário mais limpa e intuitiva.
+* **Navegação em Abas:** Sistema de abas dinâmicas para alternar entre as opções de Matricular, Listar, Atualizar e Apagar alunos.
+* **Integração:** Comunicação com o backend realizada de forma assíncrona utilizando **JavaScript (Fetch API)**.
 
-A estrutura foi desenhada com tabelas interligadas para evitar redundância de dados:
+## 💾 Banco de Dados e Relacionamentos (MySQL)
+O sistema utiliza o **MySQL** para o armazenamento relacional. Com a ajuda do **Spring Data JPA (Hibernate)**, o mapeamento objeto-relacional (ORM) cuida da criação e gestão das tabelas.
 
-**🥋 Tabela `tb_faixas` (Catálogo de Graduações):**
-* `id`: Chave primária.
-* `cor`: Descrição da cor da faixa (Ex: Branca, Cinza, Azul, etc.).
+A modelagem do banco de dados (`judodb`) foi estruturada utilizando relacionamentos, separando as entidades para manter a normalização:
 
-**🥋 Tabela `tb_judocas` (Atletas Matriculados):**
-* `id`: Chave primária de auto-incremento.
-* `nome`: Nome do atleta.
-* `idade`: Idade do atleta em anos.
-* `peso`: Peso do atleta em quilogramas (número decimal).
-* `faixa_id`: **Chave Estrangeira (Foreign Key)**. Relaciona diretamente o atleta à sua respectiva graduação na tabela `tb_faixas`.
+* **`tb_faixas`**: Tabela independente que armazena os dados das graduações (ex: Branca, Cinza, Azul).
+* **`tb_judocas`**: Tabela principal de alunos. 
+    * Possui as colunas de dados do atleta (`id`, `nome`, `idade`, `peso`).
+    * **Chave Estrangeira (Foreign Key):** Contém uma coluna que faz referência direta à `tb_faixas`, garantindo a integridade referencial de que todo aluno está vinculado a uma faixa válida do sistema.
 
 ## 🛠️ Tecnologias Utilizadas
+**Backend:**
+* **Java**
+* **Spring Boot** (Spring Web, Spring Data JPA)
+* **MySQL** para o banco de dados relacional
+* **Maven** para gerenciamento de dependências
 
 **Frontend:**
-* HTML5
-* JavaScript (ES6+)
-* CSS3
+* **HTML5 & CSS3** (Utilizando CSS Grid Layout e Flexbox)
+* **JavaScript** (Fetch API para requisições HTTP)
 
-**Backend:**
-* Java
-* Spring Boot (Spring Web, Spring Data JPA)
-* Maven
-
-**Banco de Dados:**
-* MySQL
+## 👨‍💻 Autor
+Desenvolvido por **Maicon Oliveira de Freitas**
