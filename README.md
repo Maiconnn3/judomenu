@@ -34,6 +34,18 @@ Para interagir com a API, foi construída uma interface de usuário simples e re
 O sistema utiliza o **MySQL** para o armazenamento relacional. Com a ajuda do **Spring Data JPA (Hibernate)**, o mapeamento objeto-relacional (ORM) cuida da criação e gestão das tabelas.
 
 A modelagem do banco de dados (`judodb`) foi estruturada utilizando relacionamentos, separando as entidades para manter a normalização:
+**Destaque da API:** Foram aplicadas regras de negócio simples na camada de serviço (como impedir o cadastro de atletas sem nome ou com peso zerado/negativo) e o tratamento de erros para retornar o *Status Code* HTTP adequado em caso de falha.
+
+### 🖥️ Frontend (Interface Web)
+Para interagir com a API, foi construída uma interface de usuário simples e responsiva:
+* **Layout:** Formulários estruturados utilizando **CSS Grid** (organização em colunas) para uma experiência de usuário mais limpa e intuitiva.
+* **Navegação em Abas:** Sistema de abas dinâmicas para alternar entre as opções de Matricular, Listar, Atualizar e Apagar alunos.
+* **Integração:** Comunicação com o backend realizada de forma assíncrona utilizando **JavaScript (Fetch API)**.
+
+## 💾 Banco de Dados e Relacionamentos (MySQL)
+O sistema utiliza o **MySQL** para o armazenamento relacional. Com a ajuda do **Spring Data JPA (Hibernate)**, o mapeamento objeto-relacional (ORM) cuida da criação e gestão das tabelas.
+
+A modelagem do banco de dados (`judodb`) foi estruturada utilizando relacionamentos, separando as entidades para manter a normalização:
 
 * **`tb_faixas`**: Tabela independente que armazena os dados das graduações (ex: Branca, Cinza, Azul).
 * **`tb_judocas`**: Tabela principal de alunos. 
