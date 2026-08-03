@@ -1,6 +1,23 @@
 const urlJudoSys = "http://localhost:8080/judocas";
 
 
+const tabs = document.querySelectorAll('.botaoTab');
+tabs.forEach(tab => tab.addEventListener('click', () => tabClicada(tab)));
+
+function tabClicada(tab) {
+    tabs.forEach(tab => tab.classList.remove('active'));
+    tab.classList.add('active');
+
+    const conteudos = document.querySelectorAll('.conteudo');
+    conteudos.forEach(conteudo => conteudo.classList.remove('show'));
+
+    const conteudoId = tab.getAttribute('content-id');
+    const conteudo = document.getElementById(conteudoId);
+
+    conteudo.classList.add('show');
+}
+
+
 async function criarJudoca(){
     try {
         const nomeRecebido = document.getElementById("nome").value;
@@ -133,5 +150,6 @@ async function deletarPorId(){
     } catch (error) {
         alert("ID não encontrado!");
         console.log(error.message);
-    }
+    } 
 }
+
